@@ -94,7 +94,7 @@ const Header = () => {
               </Link>
             ))}
           </div>
-          <div className="xl:w-2/5 lg:w-1/2 w-3/5 whitespace-nowrap md:flex hidden gap-x-9 overflow-hidden relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[linear-gradient(90deg,#101010,transparent,transparent,transparent,#101010)] before:z-10">
+          <div className="xl:w-2/5 lg:w-1/2 w-3/5 whitespace-nowrap md:flex hidden gap-x-9 overflow-hidden relative before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-[linear-gradient(90deg,#101010,transparent,transparent,transparent,#101010)] before:z-10 before:pointer-events-none paused-marquee">
             {[...Array(2)].map((_, index) => (
               <div
                 key={index}
@@ -107,7 +107,7 @@ const Header = () => {
                 ].map((title, index) => (
                   <p
                     key={index}
-                    className="text-sm hover:text-primary transition duration-500"
+                    className="text-sm hover:text-primary transition duration-500 cursor-pointer"
                   >
                     {title}
                   </p>
