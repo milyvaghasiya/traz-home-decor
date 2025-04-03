@@ -209,7 +209,7 @@ const Collection = () => {
     <div className="gray-bg">
       <div className="max-w-[1720px] lg:px-10 md:px-6 px-4 mx-auto sm:py-20 py-12.5 text-center">
         <h6 className="uppercase text-primary mb-2.5">Explore Our</h6>
-        <h3 className="text-white font-marcellus xl:text-[50px] lg:text-5xl sm:text-[31px] text-2xl">
+        <h3 className="text-white font-marcellus xl:text-[50px] lg:text-5xl text-[31px]">
           Luxurious Haven Collection
         </h3>
         <div>
@@ -289,7 +289,7 @@ const Collection = () => {
                               alt="collection-hover-img"
                               className="absolute inset-0 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/75 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/75 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500 pointer-events-none" />
                             <div className="flex flex-col gap-3 absolute -top-2 right-4 group-hover:top-4 transititon duration-500 opacity-0 group-hover:opacity-100">
                               {collectionIcons.map((icon, index) => (
                                 <div

@@ -50,7 +50,7 @@ const Faq = () => {
             <h6 className="uppercase text-primary mb-2.5">
               Product related queries
             </h6>
-            <h3 className="text-white font-marcellus md:mb-5 mb-4 xl:text-[50px] lg:text-5xl sm:text-[31px] text-2xl">
+            <h3 className="text-white font-marcellus md:mb-5 mb-4 xl:text-[50px] lg:text-5xl text-[31px]">
               Products &amp; Service
             </h3>
             {FaqQuestions.map((que, index) => (
@@ -90,10 +90,10 @@ const Faq = () => {
           <div className="relative h-full">
             <Image
               src={faqImg}
-              alt="about-img"
+              alt="faq-img"
               className="rounded-xl lg:h-full h-100 object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/75 rounded-xl" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/75 rounded-xl pointer-events-none" />
           </div>
         </div>
       </div>
