@@ -7,6 +7,8 @@ import Showcases from "@/components/Home/Showcases";
 import Testimonial from "@/components/Home/Testimonial";
 import Blog from "@/components/Home/Blog";
 import Brands from "@/components/Home/Brands";
+import Newsletter from "@/components/Home/Newsletter";
+import Features from "@/components/Home/Features";
 
 const Home = () => {
   return (
@@ -19,6 +21,8 @@ const Home = () => {
       <Testimonial />
       <Blog />
       <Brands />
+      <Newsletter />
+      <Features />
     </>
   );
 };
