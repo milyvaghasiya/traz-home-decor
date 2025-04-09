@@ -44,7 +44,7 @@ const menuItems = [
     href: "#",
     link: "Pages",
     subItems: [
-      { pageHref: "#", page: "about us" },
+      { pageHref: "/about-us", page: "about us" },
       { pageHref: "#", page: "faq" },
     ],
   },
