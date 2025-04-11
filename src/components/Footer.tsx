@@ -77,7 +77,7 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="bg-gray-950 text-white">
+    <div className="bg-gray-950 text-white border-t border-t-white/10">
       <div className="max-w-[1720px] lg:px-10 md:px-6 px-4 mx-auto sm:pt-20 pt-12.5">
         <div className="sm:pb-20 pb-12.5 flex flex-wrap gap-y-6">
           <div className="xl:w-1/4 lg:w-2/5 md:w-[48%] w-full">

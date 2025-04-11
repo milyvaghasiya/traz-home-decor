@@ -6,7 +6,7 @@ import { TbNorthStar } from "react-icons/tb";
 import { BiChevronDown } from "react-icons/bi";
 import faqImg from "@/assets/images/Home/faq.jpg";
 
-const FaqQuestions = [
+const faqQuestions = [
   { que: "For furniture purchases, do you have financing options?" },
   { que: "Do you have eco-friendly furniture?" },
   { que: "Is it possible to follow the delivery of my furniture?" },
@@ -53,7 +53,7 @@ const Faq = () => {
             <h3 className="text-white font-marcellus md:mb-5 mb-4 xl:text-[50px] lg:text-5xl text-[31px]">
               Products &amp; Service
             </h3>
-            {FaqQuestions.map((que, index) => (
+            {faqQuestions.map((que, index) => (
               <Disclosure
                 key={index}
                 as="div"
