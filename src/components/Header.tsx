@@ -48,8 +48,7 @@ const menuItems = [
       { pageHref: "/faq", page: "faq" },
     ],
   },
-  { href: "#", link: "shop" },
-  { href: "#", link: "collection" },
+  { href: "/shop", link: "shop" },
   { href: "#", link: "blog" },
   { href: "#", link: "contact us" },
 ];
