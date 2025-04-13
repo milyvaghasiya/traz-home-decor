@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Tab, TabGroup, TabList } from "@headlessui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Pagination } from "swiper/modules";
@@ -304,9 +305,12 @@ const Collection = () => {
                             </p>
                           </div>
                           <div className="text-white mt-4">
-                            <h4 className="text-[22px] font-marcellus mb-2.5 font-semibold transition duration-500 hover:text-primary truncate">
+                            <Link
+                              href="/shop/shop-details"
+                              className="text-[22px] font-marcellus mb-2.5 font-semibold transition duration-500 hover:text-primary truncate"
+                            >
                               {post.title}
-                            </h4>
+                            </Link>
                             <p className="font-semibold">{post.price}</p>
                           </div>
                         </div>

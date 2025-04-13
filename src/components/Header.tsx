@@ -48,7 +48,14 @@ const menuItems = [
       { pageHref: "/faq", page: "faq" },
     ],
   },
-  { href: "/shop", link: "shop" },
+  {
+    href: "#",
+    link: "shop",
+    subItems: [
+      { pageHref: "/shop", page: "shop" },
+      { pageHref: "/shop/shop-details", page: "shop detail" },
+    ],
+  },
   { href: "#", link: "blog" },
   { href: "#", link: "contact us" },
 ];
@@ -116,7 +123,7 @@ const Header = () => {
           </div>
           <Listbox value={selectedCurrency} onChange={setSelectedCurrency}>
             <div className="relative">
-              <ListboxButton className="py-1.5 px-2.5 text-xs rounded-md flex justify-between items-center gap-2.5 w-20.5">
+              <ListboxButton className="py-1.5 px-2.5 text-xs rounded-md flex justify-between items-center gap-2.5 w-21">
                 {selectedCurrency.name}
                 <TiArrowSortedDown className="size-3.5" />
               </ListboxButton>

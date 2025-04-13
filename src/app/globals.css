@@ -101,3 +101,10 @@ body:has(.sidebar) {
 .collection-swiper .swiper-pagination-bullet-active::before {
   background-color: var(--color-primary) !important;
 }
+.shop-payment-bg {
+  background: var(--color-gray-950);
+  background-image: url("../assets/images/bg-pattern.png");
+}
+.shop-swiper .swiper-slide-thumb-active img {
+  border: 2px solid var(--color-primary);
+}
