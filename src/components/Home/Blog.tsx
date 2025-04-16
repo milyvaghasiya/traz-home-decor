@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Blog1 from "@/assets/images/Home/blog-1.jpg";
 import Blog2 from "@/assets/images/Home/blog-2.jpg";
 import Blog3 from "@/assets/images/Home/blog-3.jpg";
@@ -43,9 +44,12 @@ const Blog = () => {
             May 27, 2024 -{" "}
             <span className="text-white capitalize">by designer</span>
           </p>
-          <h5 className="font-marcellus sm:mb-4 mb-2.5 xl:text-3xl text-2xl text-white hover:text-primary transition duration-500">
+          <Link
+            href="/blog/blog-details"
+            className="block font-marcellus sm:mb-4 mb-2.5 xl:text-3xl text-2xl text-white hover:text-primary transition duration-500"
+          >
             The Modest Living Space Furnishings Ideas
-          </h5>
+          </Link>
           <p className="xl:w-[85%]">
             Etiam eu sapien sem. Suspendisse a massa justo. Cras eget lorem
             nunc. Fusce nec...
@@ -66,9 +70,12 @@ const Blog = () => {
               </div>
               <div className="md:w-[62%] w-full">
                 <p className="mb-2.5 uppercase text-primary">May 27, 2024</p>
-                <h5 className="font-marcellus lg:mb-4 mb-2.5 xl:text-3xl text-2xl text-white hover:text-primary transition duration-500">
+                <Link
+                  href="/blog/blog-details"
+                  className="block font-marcellus lg:mb-4 mb-2.5 xl:text-3xl text-2xl text-white hover:text-primary transition duration-500"
+                >
                   {blog.title}
-                </h5>
+                </Link>
                 <p>{blog.desc}</p>
               </div>
             </div>

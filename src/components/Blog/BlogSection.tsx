@@ -81,14 +81,14 @@ const BlogSection = () => {
               <span className="text-white capitalize">by designer</span>
             </p>
             <Link
-              href="#"
+              href="/blog/blog-details"
               className="font-marcellus sm:mb-4 mb-2.5 xl:text-3xl text-2xl text-white hover:text-primary transition duration-500 block"
             >
               {blog.title}
             </Link>
             <p className="mb-3">{blog.desc}</p>
             <Link
-              href="#"
+              href="/blog/blog-details"
               className="font-marcellus underline underline-offset-2 text-white hover:text-primary transition duration-500"
             >
               Read More
@@ -122,10 +122,13 @@ const BlogSection = () => {
                 className="sm:w-25 w-22 rounded-lg"
               />
               <div className="sm:w-[calc(100%-116px)] w-[calc(100%-100px)]">
-                <p className="mb-1.5 uppercase text-sm">May 27, 2024 - </p>
-                <h4 className="sm:text-xl text-base font-marcellus text-white hover:text-primary transition duration-500">
+                <p className="mb-1.5 uppercase text-sm">May 27, 2024</p>
+                <Link
+                  href="/blog/blog-details"
+                  className="block sm:text-xl text-base font-marcellus text-white hover:text-primary transition duration-500"
+                >
                   {post.title}
-                </h4>
+                </Link>
               </div>
             </div>
           ))}

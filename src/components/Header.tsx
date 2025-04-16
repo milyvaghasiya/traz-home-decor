@@ -56,7 +56,14 @@ const menuItems = [
       { pageHref: "/shop/shop-details", page: "shop detail" },
     ],
   },
-  { href: "/blog", link: "blog" },
+  {
+    href: "#",
+    link: "blog",
+    subItems: [
+      { pageHref: "/blog", page: "blog" },
+      { pageHref: "/blog/blog-details", page: "blog detail" },
+    ],
+  },
   { href: "#", link: "contact us" },
 ];
 
