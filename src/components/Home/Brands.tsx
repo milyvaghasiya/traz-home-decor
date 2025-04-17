@@ -49,7 +49,7 @@ const Brands = () => {
         <SwiperSlide key={index} className="relative group">
           <div className="relative">
             <Image src={brand.img} alt="brand-bg" />
-            <div className="absolute inset-0 h-full w-full bg-black/60" />
+            <div className="absolute inset-0 h-full w-full bg-black/60 pointer-events-none" />
           </div>
           <Image
             src={brand.logo}

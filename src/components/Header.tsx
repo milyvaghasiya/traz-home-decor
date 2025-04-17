@@ -64,7 +64,7 @@ const menuItems = [
       { pageHref: "/blog/blog-details", page: "blog detail" },
     ],
   },
-  { href: "#", link: "contact us" },
+  { href: "/contact-us", link: "contact us" },
 ];
 
 const navIcons = [

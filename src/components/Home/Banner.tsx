@@ -18,7 +18,7 @@ const Banner = () => {
           }
         }}
       />
-      <div className="absolute inset-0 h-full w-full bg-black/60" />
+      <div className="absolute inset-0 h-full w-full bg-black/60 pointer-events-none" />
       <div className="max-w-[1000px] mx-auto md:px-5 px-4 pt-14 text-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full">
         <h6 className="uppercase text-primary">Timeless Elegance</h6>
         <h3 className="text-white font-marcellus sm:mb-4 mb-3 md:text-[50px] sm:text-5xl text-[31px] max-[640px]:leading-10">

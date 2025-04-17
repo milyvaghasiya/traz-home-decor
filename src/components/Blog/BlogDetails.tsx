@@ -75,7 +75,7 @@ const BlogDetails = () => {
         fames ac ante ipsum primis in faucibus.
       </p>
       <div className="bg-[url(/blog-bg.png)] bg-no-repeat bg-center bg-cover sm:p-10 p-5 rounded-xl relative my-10">
-        <div className="absolute inset-0 h-full w-full bg-black/50 rounded-xl" />
+        <div className="absolute inset-0 h-full w-full bg-black/50 rounded-xl pointer-events-none" />
         <h5 className="text-[22px] font-marcellus text-white relative">
           Quisque bibendum sem nibh, quis fermentum odio suscipit vitae. Integer
           et sem id dui fringilla vestibulum non vitae lectus. Nunc at consequat
