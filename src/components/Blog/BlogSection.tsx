@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Fade } from "react-awesome-reveal";
 import { Input } from "@headlessui/react";
 import { BiSearchAlt } from "react-icons/bi";
 import Blog1 from "@/assets/images/Home/blog-1.jpg";
@@ -68,32 +69,40 @@ const BlogSection = () => {
     <div className="max-w-[1720px] lg:px-10 md:px-6 px-4 mx-auto sm:py-20 py-12.5 flex lg:flex-row flex-col lg:gap-0 gap-y-12">
       <div className="xl:w-[calc(100%-410px)] lg:w-[calc(100%-340px)] w-full grid sm:grid-cols-2 gap-x-6 gap-y-10 xl:pr-10 lg:pr-8">
         {blogList.map((blog, index) => (
-          <div className="group" key={index}>
-            <div className="overflow-hidden rounded-lg mb-7.5">
-              <Image
-                src={blog.img}
-                alt="blog"
-                className="group-hover:scale-110 transition duration-500"
-              />
+          <Fade
+            direction="up"
+            duration={1500}
+            triggerOnce
+            key={index}
+            delay={index * 100}
+          >
+            <div className="group">
+              <div className="overflow-hidden rounded-lg mb-7.5">
+                <Image
+                  src={blog.img}
+                  alt="blog"
+                  className="group-hover:scale-110 transition duration-500"
+                />
+              </div>
+              <p className="mb-2.5 uppercase text-primary">
+                May 27, 2024 -{" "}
+                <span className="text-white capitalize">by designer</span>
+              </p>
+              <Link
+                href="/blog/blog-details"
+                className="font-marcellus sm:mb-4 mb-2.5 xl:text-3xl text-2xl text-white hover:text-primary transition duration-500 block"
+              >
+                {blog.title}
+              </Link>
+              <p className="mb-3">{blog.desc}</p>
+              <Link
+                href="/blog/blog-details"
+                className="font-marcellus underline underline-offset-2 text-white hover:text-primary transition duration-500"
+              >
+                Read More
+              </Link>
             </div>
-            <p className="mb-2.5 uppercase text-primary">
-              May 27, 2024 -{" "}
-              <span className="text-white capitalize">by designer</span>
-            </p>
-            <Link
-              href="/blog/blog-details"
-              className="font-marcellus sm:mb-4 mb-2.5 xl:text-3xl text-2xl text-white hover:text-primary transition duration-500 block"
-            >
-              {blog.title}
-            </Link>
-            <p className="mb-3">{blog.desc}</p>
-            <Link
-              href="/blog/blog-details"
-              className="font-marcellus underline underline-offset-2 text-white hover:text-primary transition duration-500"
-            >
-              Read More
-            </Link>
-          </div>
+          </Fade>
         ))}
       </div>
       <div className="xl:w-[410px] lg:w-[340px] w-full lg:p-0 xl:pl-10 lg:pl-8 sm:p-8 p-3 lg:border-r-transparent lg:border-y-transparent border border-white/50 lg:rounded-none rounded-lg">

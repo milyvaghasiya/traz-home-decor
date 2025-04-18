@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  Input,
   Listbox,
   ListboxButton,
   ListboxOption,
@@ -68,7 +69,6 @@ const menuItems = [
 ];
 
 const navIcons = [
-  { id: "search", icon: <BiSearchAlt /> },
   { id: "user", icon: <FaRegUser size={18} /> },
   { id: "cart", icon: <AiOutlineShoppingCart /> },
 ];
@@ -79,6 +79,7 @@ const Header = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
   const [openSubMenuSidebar, setOpenSubMenuSidebar] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [openSearchMenu, setOpenSearchMenu] = useState(false);
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
@@ -94,6 +95,7 @@ const Header = () => {
 
   return (
     <div className="text-white left-0 right-0 z-50 absolute">
+      {/* ============================================ TOP HEADER ============================================ */}
       <div className="bg-gray-950">
         <div className="flex justify-between items-center py-2 max-w-[1720px] lg:px-10 md:px-6 px-4 mx-auto">
           <div className="flex gap-4 items-center">
@@ -155,6 +157,7 @@ const Header = () => {
         </div>
       </div>
 
+      {/* =========================================== BOTTOM HEADER =========================================== */}
       <div
         className={`lg:h-20.5 h-16 border-b w-full ${
           isSticky
@@ -166,6 +169,8 @@ const Header = () => {
           <Link href="#">
             <Image src={Logo} alt="logo" className="lg:w-[110px] w-[90px]" />
           </Link>
+
+          {/* ====================================== DESKTOP MENU ====================================== */}
           <div className="hidden lg:flex items-center justify-end">
             {menuItems?.map((items, index) => (
               <div key={index} className="group relative px-1">
@@ -200,21 +205,59 @@ const Header = () => {
               </div>
             ))}
           </div>
+
+          {/* =================================== SEARCH MENU DRAWER =================================== */}
+          <div
+            className={`${
+              openSearchMenu ? "top-0" : "-top-50"
+            } fixed left-0 w-full bg-gray-950 text-white border-b border-b-white/10 transition-all duration-500 sm:p-10 py-6 px-4`}
+          >
+            <div
+              onClick={() => setOpenSearchMenu(false)}
+              className="flex items-center justify-center h-7 w-7 rounded-full hover:bg-white/5 transition duration-500 cursor-pointer absolute top-4 right-4"
+            >
+              <FaXmark />
+            </div>
+            <h5 className="text-white capitalize sm:mb-6 mb-3 font-marcellus text-2xl">
+              what are you looking for?
+            </h5>
+            <div className="relative">
+              <Input
+                placeholder="Enter Keyword"
+                type="text"
+                className="block w-full rounded-full sm:py-4 py-3 sm:pr-16 pr-13 pl-6 text-white border border-white/20 !outline-0 focus:border-primary"
+              />
+              <div className="absolute right-5 top-1/2 -translate-y-1/2 rounded-full transition duration-500 flex items-center justify-center cursor-pointer">
+                <BiSearchAlt
+                  size={28}
+                  className="text-white group-hover:text-white transition duration-500"
+                />
+              </div>
+            </div>
+          </div>
+
           <div className="flex gap-4 items-center">
+            <h5
+              onClick={() => setOpenSearchMenu(true)}
+              className="lg:text-2xl text-[22px] hover:text-primary transition duration-500 cursor-pointer"
+            >
+              <BiSearchAlt />
+            </h5>
             {navIcons.map((icon) => (
-              <Link
+              <h5
                 key={icon.id}
-                href="/"
-                className="lg:text-2xl text-[22px] hover:text-primary transition duration-500"
+                className="lg:text-2xl text-[22px] hover:text-primary transition duration-500 cursor-pointer"
               >
                 {icon.icon}
-              </Link>
+              </h5>
             ))}
             <RiMenu3Fill
               onClick={() => setOpenSidebar(true)}
               className="lg:hidden text-[22px] hover:text-primary transition duration-500 cursor-pointer"
             />
           </div>
+
+          {/* ====================================== MOBILE MENU ====================================== */}
           {openSidebar && (
             <div
               onClick={() => {

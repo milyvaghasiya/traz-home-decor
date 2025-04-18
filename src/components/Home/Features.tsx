@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Fade } from "react-awesome-reveal";
 import Feature1 from "@/assets/images/Home/feature-1.svg";
 import Feature2 from "@/assets/images/Home/feature-2.svg";
 import Feature3 from "@/assets/images/Home/feature-3.svg";
@@ -30,26 +31,31 @@ const featuresList = [
 
 const Features = () => {
   return (
-    <div className="max-w-[1720px] lg:px-10 md:px-6 px-4 mx-auto py-15 grid xl:grid-cols-4 sm:grid-cols-2 gap-x-3 gap-y-7.5">
+    <div className="max-w-[1720px] lg:px-10 md:px-6 px-4 mx-auto py-15 grid xl:grid-cols-4 sm:grid-cols-2 gap-x-3 gap-y-7.5 overflow-hidden">
       {featuresList.map((feature, index) => (
-        <div
+        <Fade
+          direction="up"
+          duration={1500}
+          triggerOnce
           key={index}
-          className="flex gap-3 xl:items-start items-center group"
+          delay={index * 100}
         >
-          <div className="md:ml-7 ml-5 md:size-22 size-18 relative before:absolute before:h-full before:w-full before:bg-gray-800 before:top-0 md:before:-left-7 before:-left-5 before:rounded-full group-hover:before:scale-[0.8] before:z-10 before:transition-all before:duration-[800ms] before:ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]">
-            <Image
-              src={feature.icon}
-              alt="feature-icon"
-              className="md:size-22 size-18 relative z-20"
-            />
+          <div className="flex gap-3 xl:items-start items-center group">
+            <div className="md:ml-7 ml-5 md:size-22 size-18 relative before:absolute before:h-full before:w-full before:bg-gray-800 before:top-0 md:before:-left-7 before:-left-5 before:rounded-full group-hover:before:scale-[0.8] before:z-10 before:transition-all before:duration-[800ms] before:ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]">
+              <Image
+                src={feature.icon}
+                alt="feature-icon"
+                className="md:size-22 size-18 relative z-20"
+              />
+            </div>
+            <div className="w-[calc(100%-128px)]">
+              <h5 className="text-white text-xl font-marcellus group-hover:text-primary transition duration-500 whitespace-nowrap md:mb-3 mb-1">
+                {feature.title}
+              </h5>
+              <p className="line-clamp-2">{feature.desc}</p>
+            </div>
           </div>
-          <div className="w-[calc(100%-128px)]">
-            <h5 className="text-white text-xl font-marcellus group-hover:text-primary transition duration-500 whitespace-nowrap md:mb-3 mb-1">
-              {feature.title}
-            </h5>
-            <p className="line-clamp-2">{feature.desc}</p>
-          </div>
-        </div>
+        </Fade>
       ))}
     </div>
   );

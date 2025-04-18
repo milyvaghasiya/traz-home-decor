@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Fade } from "react-awesome-reveal";
 import { Tab, TabGroup, TabList } from "@headlessui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Pagination } from "swiper/modules";
@@ -206,12 +207,14 @@ const Collection = () => {
   }, []);
 
   return (
-    <div className="gray-bg">
+    <div className="gray-bg overflow-hidden">
       <div className="max-w-[1720px] lg:px-10 md:px-6 px-4 mx-auto sm:py-20 py-12.5 text-center">
-        <h6 className="uppercase text-primary mb-2.5">Explore Our</h6>
-        <h3 className="text-white font-marcellus xl:text-[50px] lg:text-5xl text-[31px]">
-          Luxurious Haven Collection
-        </h3>
+        <Fade direction="up" duration={1500} triggerOnce>
+          <h6 className="uppercase text-primary mb-2.5">Explore Our</h6>
+          <h3 className="text-white font-marcellus xl:text-[50px] lg:text-5xl text-[31px]">
+            Luxurious Haven Collection
+          </h3>
+        </Fade>
         <div>
           <TabGroup onChange={handleToggleTab}>
             <div className="flex items-center w-full justify-center gap-3 md:py-15 py-10">
@@ -225,13 +228,21 @@ const Collection = () => {
                 ref={scrollContainerRef}
                 className="flex gap-6 w-full justify-evenly items-center overflow-hidden scroll-smooth"
               >
-                {collectionList.map(({ tabName }) => (
-                  <Tab
-                    key={tabName}
-                    className="md:text-[22px] sm:text-xl text-lg font-semibold hover:text-white data-[selected]:text-white data-[selected]:underline underline-offset-4 data-[selected]:data-[hover]:text-white cursor-pointer !outline-none transition duration-1000 whitespace-nowrap"
+                {collectionList.map(({ tabName }, index) => (
+                  <Fade
+                    direction="up"
+                    duration={1500}
+                    triggerOnce
+                    key={index}
+                    delay={index * 100}
                   >
-                    {tabName}
-                  </Tab>
+                    <Tab
+                      key={tabName}
+                      className="md:text-[22px] sm:text-xl text-lg font-semibold hover:text-white data-[selected]:text-white data-[selected]:underline underline-offset-4 data-[selected]:data-[hover]:text-white cursor-pointer !outline-none transition duration-1000 whitespace-nowrap"
+                    >
+                      {tabName}
+                    </Tab>
+                  </Fade>
                 ))}
               </TabList>
               {showArrows && (
@@ -277,43 +288,50 @@ const Collection = () => {
                   >
                     {[...tabList, ...tabList].map((post, index) => (
                       <SwiperSlide key={index} className="!pointer-events-auto">
-                        <div className="group">
-                          <div className="rounded-xl overflow-hidden relative">
-                            <Image
-                              src={post.primaryImg}
-                              alt="collection-img"
-                              className="transition duration-500"
-                            />
-                            <Image
-                              src={post.secondaryImg}
-                              alt="collection-hover-img"
-                              className="absolute inset-0 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/75 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500 pointer-events-none" />
-                            <div className="flex flex-col gap-3 absolute -top-2 right-4 group-hover:top-4 transititon duration-500 opacity-0 group-hover:opacity-100">
-                              {collectionIcons.map((icon, index) => (
-                                <div
-                                  key={index}
-                                  className="size-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition duration-500 cursor-pointer"
-                                >
-                                  {icon.icon}
-                                </div>
-                              ))}
+                        <Fade
+                          direction="up"
+                          delay={index * 100}
+                          duration={1500}
+                          triggerOnce
+                        >
+                          <div className="group">
+                            <div className="rounded-xl overflow-hidden relative">
+                              <Image
+                                src={post.primaryImg}
+                                alt="collection-img"
+                                className="transition duration-500"
+                              />
+                              <Image
+                                src={post.secondaryImg}
+                                alt="collection-hover-img"
+                                className="absolute inset-0 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/75 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500 pointer-events-none" />
+                              <div className="flex flex-col gap-3 absolute -top-2 right-4 group-hover:top-4 transititon duration-500 opacity-0 group-hover:opacity-100">
+                                {collectionIcons.map((icon, index) => (
+                                  <div
+                                    key={index}
+                                    className="size-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition duration-500 cursor-pointer"
+                                  >
+                                    {icon.icon}
+                                  </div>
+                                ))}
+                              </div>
+                              <p className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-full text-white group-hover:bottom-4 transition-all duration-500 hover:text-primary hover:underline cursor-pointer font-semibold opacity-0 group-hover:opacity-100">
+                                Select Options
+                              </p>
                             </div>
-                            <p className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-full text-white group-hover:bottom-4 transition-all duration-500 hover:text-primary hover:underline cursor-pointer font-semibold opacity-0 group-hover:opacity-100">
-                              Select Options
-                            </p>
+                            <div className="text-white mt-4">
+                              <Link
+                                href="/shop/shop-details"
+                                className="text-[22px] font-marcellus mb-2.5 font-semibold transition duration-500 hover:text-primary truncate"
+                              >
+                                {post.title}
+                              </Link>
+                              <p className="font-semibold">{post.price}</p>
+                            </div>
                           </div>
-                          <div className="text-white mt-4">
-                            <Link
-                              href="/shop/shop-details"
-                              className="text-[22px] font-marcellus mb-2.5 font-semibold transition duration-500 hover:text-primary truncate"
-                            >
-                              {post.title}
-                            </Link>
-                            <p className="font-semibold">{post.price}</p>
-                          </div>
-                        </div>
+                        </Fade>
                       </SwiperSlide>
                     ))}
                   </Swiper>

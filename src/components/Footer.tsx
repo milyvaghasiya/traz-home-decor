@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Fade } from "react-awesome-reveal";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaThreads, FaXTwitter } from "react-icons/fa6";
 import { GoArrowUp } from "react-icons/go";
@@ -77,105 +78,119 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="bg-gray-950 text-white border-t border-t-white/10">
+    <div className="bg-gray-950 text-white border-t border-t-white/10 overflow-hidden">
       <div className="max-w-[1720px] lg:px-10 md:px-6 px-4 mx-auto sm:pt-20 pt-12.5">
-        <div className="sm:pb-20 pb-12.5 flex flex-wrap gap-y-6">
+        <div className="sm:pb-20 pb-12.5 flex flex-wrap gap-y-6 border-b border-b-white/20">
           <div className="xl:w-1/4 lg:w-2/5 md:w-[48%] w-full">
-            <Link href="#" className="block mb-5">
-              <Image src={Logo} alt="logo" className="lg:w-[110px] w-[90px]" />
-            </Link>
-            <p className="lg:mb-10 mb-7.5 md:max-w-[340px]">
-              Proin a interdum elit. Etiam eu sapien sem. Suspendisse a massa
-              justo. Cras eget lorem nunc. Fusce nec urna tempus tempus
-            </p>
-            <div className="flex gap-4 items-center">
-              {socialIcons.map((icon) => (
-                <Link
-                  key={icon.id}
-                  href="/"
-                  className="text-xl hover:text-primary transition duration-500"
-                >
-                  {icon.icon}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="xl:w-1/5 lg:w-[30%] md:w-[26%] sm:w-1/2 w-full">
-            <div className="w-fit xl:mx-auto">
-              <h5 className="text-xl font-marcellus md:mb-2 mb-4">
-                Useful links
-              </h5>
-              {linksList.map((list, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  className="block transition duration-500 hover:text-primary py-1.5"
-                >
-                  {list.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="xl:w-[13%] lg:w-[30%] md:w-[26%] sm:w-1/2 w-full">
-            <div className="w-fit xl:mx-auto">
-              <h5 className="text-xl font-marcellus md:mb-2 mb-4">
-                Information
-              </h5>
-              {informationList.map((list, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  className="block transition duration-500 hover:text-primary py-1.5"
-                >
-                  {list.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="xl:w-[17%] lg:w-2/5 md:w-[48%] sm:w-1/2 w-full">
-            <div className="w-fit xl:mx-auto">
-              <h5 className="text-xl font-marcellus md:mb-2 mb-4">
-                Information
-              </h5>
-              {supportList.map((list, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  className="block transition duration-500 hover:text-primary py-1.5"
-                >
-                  {list.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="xl:w-1/4 lg:w-[30%] md:w-2/5 sm:w-1/2 w-full">
-            <div className="w-fit xl:mx-auto">
-              <h5 className="text-xl font-marcellus md:mb-2 mb-4">
-                Follow @Instagram
-              </h5>
-              <div className="grid grid-cols-3 gap-3">
-                {instagramList.map((list, index) => (
-                  <div key={index} className="relative group">
-                    <Image
-                      src={list.img}
-                      alt="footer-img"
-                      className="object-cover rounded-lg"
-                    />
-                    <div className="absolute inset-0 h-full w-full flex items-center justify-center before:absolute before:inset-0 before:h-full before:w-full before:bg-black/50 before:backdrop-blur-[1px] before:opacity-0 before:transition-all before:duration-300 before:pointer-events-none group-hover:before:opacity-100 before:rounded-lg">
-                      <FaInstagram
-                        size={30}
-                        className="scale-[0.8] opacity-0 group-hover:opacity-100 group-hover:scale-100 transititon-all duration-700"
-                      />
-                    </div>
-                  </div>
+            <Fade direction="up" duration={1500} triggerOnce>
+              <Link href="#" className="block mb-5">
+                <Image
+                  src={Logo}
+                  alt="logo"
+                  className="lg:w-[110px] w-[90px]"
+                />
+              </Link>
+              <p className="lg:mb-10 mb-7.5 md:max-w-[340px]">
+                Proin a interdum elit. Etiam eu sapien sem. Suspendisse a massa
+                justo. Cras eget lorem nunc. Fusce nec urna tempus tempus
+              </p>
+              <div className="flex gap-4 items-center">
+                {socialIcons.map((icon) => (
+                  <Link
+                    key={icon.id}
+                    href="/"
+                    className="text-xl hover:text-primary transition duration-500"
+                  >
+                    {icon.icon}
+                  </Link>
                 ))}
               </div>
-            </div>
+            </Fade>
+          </div>
+          <div className="xl:w-1/5 lg:w-[30%] md:w-[26%] sm:w-1/2 w-full">
+            <Fade direction="up" duration={1500} triggerOnce delay={100}>
+              <div className="w-fit xl:mx-auto">
+                <h5 className="text-xl font-marcellus md:mb-2 mb-4">
+                  Useful links
+                </h5>
+                {linksList.map((list, index) => (
+                  <Link
+                    key={index}
+                    href="#"
+                    className="block transition duration-500 hover:text-primary py-1.5"
+                  >
+                    {list.title}
+                  </Link>
+                ))}
+              </div>
+            </Fade>
+          </div>
+          <div className="xl:w-[13%] lg:w-[30%] md:w-[26%] sm:w-1/2 w-full">
+            <Fade direction="up" duration={1500} triggerOnce delay={200}>
+              <div className="w-fit xl:mx-auto">
+                <h5 className="text-xl font-marcellus md:mb-2 mb-4">
+                  Information
+                </h5>
+                {informationList.map((list, index) => (
+                  <Link
+                    key={index}
+                    href="#"
+                    className="block transition duration-500 hover:text-primary py-1.5"
+                  >
+                    {list.title}
+                  </Link>
+                ))}
+              </div>
+            </Fade>
+          </div>
+          <div className="xl:w-[17%] lg:w-2/5 md:w-[48%] sm:w-1/2 w-full">
+            <Fade direction="up" duration={1500} triggerOnce delay={300}>
+              <div className="w-fit xl:mx-auto">
+                <h5 className="text-xl font-marcellus md:mb-2 mb-4">
+                  Information
+                </h5>
+                {supportList.map((list, index) => (
+                  <Link
+                    key={index}
+                    href="#"
+                    className="block transition duration-500 hover:text-primary py-1.5"
+                  >
+                    {list.title}
+                  </Link>
+                ))}
+              </div>
+            </Fade>
+          </div>
+          <div className="xl:w-1/4 lg:w-[30%] md:w-2/5 sm:w-1/2 w-full">
+            <Fade direction="up" duration={1500} triggerOnce delay={400}>
+              <div className="w-fit xl:mx-auto">
+                <h5 className="text-xl font-marcellus md:mb-2 mb-4">
+                  Follow @Instagram
+                </h5>
+                <div className="grid grid-cols-3 gap-3">
+                  {instagramList.map((list, index) => (
+                    <div key={index} className="relative group">
+                      <Image
+                        src={list.img}
+                        alt="footer-img"
+                        className="object-cover rounded-lg"
+                      />
+                      <div className="absolute inset-0 h-full w-full flex items-center justify-center before:absolute before:inset-0 before:h-full before:w-full before:bg-black/50 before:backdrop-blur-[1px] before:opacity-0 before:transition-all before:duration-300 before:pointer-events-none group-hover:before:opacity-100 before:rounded-lg">
+                        <FaInstagram
+                          size={30}
+                          className="scale-[0.8] opacity-0 group-hover:opacity-100 group-hover:scale-100 transititon-all duration-700"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Fade>
           </div>
         </div>
-        <div className="py-4 border-t border-t-white/20 text-center">
-          ©Traz site all rights Reserved
-        </div>
+        <Fade direction="up" duration={1500} triggerOnce>
+          <div className="py-4 text-center">©Traz site all rights Reserved</div>
+        </Fade>
         <button
           onClick={handleScrollToTop}
           className={`fixed bottom-4 right-4 w-10 h-10 flex items-center justify-center rounded-full shadow-lg z-40 cursor-pointer transititon duration-500 ${

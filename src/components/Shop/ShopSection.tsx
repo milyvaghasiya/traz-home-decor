@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Fade } from "react-awesome-reveal";
 import { GoHeart } from "react-icons/go";
 import { LuArrowDownUp } from "react-icons/lu";
 import { BiSearchAlt } from "react-icons/bi";
@@ -111,40 +112,51 @@ const ShopSection = () => {
   return (
     <div className="max-w-[1720px] lg:px-10 md:px-6 px-4 mx-auto sm:py-20 py-12.5 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-8 text-center">
       {shopList.map((item, index) => (
-        <div key={index} className="group">
-          <div className="rounded-xl overflow-hidden relative">
-            <Image
-              src={item.primaryImg}
-              alt="collection-img"
-              className="transition duration-500"
-            />
-            <Image
-              src={item.secondaryImg}
-              alt="collection-hover-img"
-              className="absolute inset-0 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/75 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500 pointer-events-none" />
-            <div className="flex flex-col gap-3 absolute -top-2 right-4 group-hover:top-4 transititon duration-500 opacity-0 group-hover:opacity-100">
-              {collectionIcons.map((icon, index) => (
-                <div
-                  key={index}
-                  className="size-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition duration-500 cursor-pointer"
-                >
-                  {icon.icon}
-                </div>
-              ))}
+        <Fade
+          direction="up"
+          duration={1500}
+          triggerOnce
+          key={index}
+          delay={index * 100}
+        >
+          <div className="group">
+            <div className="rounded-xl overflow-hidden relative">
+              <Image
+                src={item.primaryImg}
+                alt="collection-img"
+                className="transition duration-500"
+              />
+              <Image
+                src={item.secondaryImg}
+                alt="collection-hover-img"
+                className="absolute inset-0 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/75 scale-110 group-hover:scale-100 group-hover:opacity-100 opacity-0 transition duration-500 pointer-events-none" />
+              <div className="flex flex-col gap-3 absolute -top-2 right-4 group-hover:top-4 transititon duration-500 opacity-0 group-hover:opacity-100">
+                {collectionIcons.map((icon, index) => (
+                  <div
+                    key={index}
+                    className="size-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary hover:text-white transition duration-500 cursor-pointer"
+                  >
+                    {icon.icon}
+                  </div>
+                ))}
+              </div>
+              <p className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-full text-white group-hover:bottom-4 transition-all duration-500 hover:text-primary hover:underline cursor-pointer font-semibold opacity-0 group-hover:opacity-100">
+                Select Options
+              </p>
             </div>
-            <p className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-full text-white group-hover:bottom-4 transition-all duration-500 hover:text-primary hover:underline cursor-pointer font-semibold opacity-0 group-hover:opacity-100">
-              Select Options
-            </p>
+            <div className="text-white mt-4">
+              <Link
+                href="/shop/shop-details"
+                className="text-[22px] font-marcellus mb-2.5 font-semibold transition duration-500 hover:text-primary truncate"
+              >
+                {item.title}
+              </Link>
+              <p className="font-semibold">{item.price}</p>
+            </div>
           </div>
-          <div className="text-white mt-4">
-            <Link href="/shop/shop-details" className="text-[22px] font-marcellus mb-2.5 font-semibold transition duration-500 hover:text-primary truncate">
-              {item.title}
-            </Link>
-            <p className="font-semibold">{item.price}</p>
-          </div>
-        </div>
+        </Fade>
       ))}
     </div>
   );
