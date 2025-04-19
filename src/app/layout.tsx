@@ -3,6 +3,7 @@ import { Marcellus, Mulish } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import Loader from "@/components/Loader";
 
 const marcellus = Marcellus({
   variable: "--font-marcellus",
@@ -29,9 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${marcellus.variable} ${mulish.variable}`}>
-        <Header />
-        {children}
-        <Footer />
+        <Loader>
+          <Header />
+          {children}
+          <Footer />
+        </Loader>
       </body>
     </html>
   );
